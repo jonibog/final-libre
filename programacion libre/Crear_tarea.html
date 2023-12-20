@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+    <link rel="stylesheet" href="styli.css">
+</head>
+<body>
+    <div id="task-list">
+        <h2>Lista de Tareas</h2>
+        <div>
+            <label for="task">Nueva Tarea:</label>
+            <input type="text" id="task" placeholder="Ingrese una tarea">
+            <button type="boton" onclick="agregarTarea()">Agregar</button>
+        </div>
+        <div id="tasks-container"></div>
+    </div>
+
+    <script>
+        function agregarTarea() {
+            var taskInput = document.getElementById('task');
+            var taskText = taskInput.value;
+
+            if (taskText.trim() === "") {
+                alert("Por favor, ingrese una tarea válida.");
+                return;
+            }
+
+            var tasksContainer = document.getElementById('tasks-container');
+            var taskItem = document.createElement('div');
+            taskItem.className = 'task-item';
+            taskItem.innerHTML = `
+                <span>${taskText}</span>
+                <button onclick="editarTarea(this)">Editar</button>
+                <button onclick="eliminarTarea(this)">Eliminar</button>
+            `;
+            tasksContainer.appendChild(taskItem);
+
+            taskInput.value = "";
+        }
+
+        function editarTarea(button) {
+            var taskItem = button.parentNode;
+            var taskText = taskItem.querySelector('span').innerText;
+            var newTaskText = prompt('Editar tarea:', taskText);
+
+            if (newTaskText !== null) {
+                taskItem.querySelector('span').innerText = newTaskText;
+            }
+        }
+
+        function eliminarTarea(button) {
+            var taskItem = button.parentNode;
+            var tasksContainer = document.getElementById('tasks-container');
+            tasksContainer.removeChild(taskItem);
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="order-list">
+        <h2>Order Management</h2>
+        <div id="forms">
+            <form id="create-form">
+                <!-- Form for creating a new order (visible to administrators only) -->
+                <h3>Create Order</h3>
+                <!-- Fields for creating a new order -->
+                <button type="submit">Create Order</button>
+            </form>
+            <form id="update-form">
+                <!-- Form for updating an order (visible to administrators only) -->
+                <h3>Update Order</h3>
+                <!-- Fields for updating an existing order -->
+                <button type="submit">Update Order</button>
+            </form>
+        </div>
+        <table id="orders-table">
+            <thead>
+                <tr>
+                    <!-- Table headers -->
+                </tr>
+            </thead>
+            <tbody id="orders-body">
+                <!-- Order entries will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

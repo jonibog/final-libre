@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Order Management</title>
+    <link rel="stylesheet" href="styli.css">
+</head>
+<body>
+    <h2>Purchase Order Management (Admin)</h2>
+
+    <!-- Create Purchase Order Form -->
+    <h3>Create Purchase Order</h3>
+    <form id="create-form">
+        <label for="orderNumber">Order Number:</label>
+        <input type="text" id="orderNumber" required>
+        <button type="button" onclick="createPurchaseOrder()">Create</button>
+    </form>
+
+    <!-- Update Purchase Order Form -->
+    <h3>Update Purchase Order</h3>
+    <form id="update-form">
+        <label for="orderId">Order ID:</label>
+        <input type="text" id="orderId" required>
+        <br>
+        <label for="updatedOrderNumber">Updated Order Number:</label>
+        <input type="text" id="updatedOrderNumber" required>
+        <button type="button" onclick="updatePurchaseOrder()">Update</button>
+    </form>
+
+    <!-- Find Purchase Order Form -->
+    <h3>Find Purchase Order</h3>
+    <form id="find-form">
+        <label for="findOrderId">Order ID:</label>
+        <input type="text" id="findOrderId" required>
+        <button type="button" onclick="findPurchaseOrder()">Find</button>
+    </form>
+
+    <!-- Display Results -->
+    <div id="result-container"></div>
+
+    <script>
+        function createPurchaseOrder() {
+            var orderNumber = document.getElementById('orderNumber').value;
+
+            // Make a POST request to create a new purchase order
+            fetch('/api/purchase-orders/create', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'YourAuthTokenHere'  // Replace with your actual authentication token
+                },
+                body: JSON.stringify({
+                    orderNumber: orderNumber
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Handle the response, update UI, etc.
+                console.log(data);
+                document.getElementById('result-container').innerText = 'Purchase Order created successfully.';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('result-container').innerText = 'Error creating Purchase Order.';
+            });
+        }
+
+        function updatePurchaseOrder() {
+            var orderId = document.getElementById('orderId').value;
+            var updatedOrderNumber = document.getElementById('updatedOrderNumber').value;
+
+            // Make a PUT request to update the purchase order
+            fetch('/api/purchase-orders/update/' + orderId, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'YourAuthTokenHere'  // Replace with your actual authentication token
+                },
+                body: JSON.stringify({
+                    orderNumber: updatedOrderNumber
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Handle the response, update UI, etc.
+                console.log(data);
+                document.getElementById('result-container').innerText = 'Purchase Order updated successfully.';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('result-container').innerText = 'Error updating Purchase Order.';
+            });
+        }
+
+        function findPurchaseOrder() {
+            var findOrderId = document.getElementById('findOrderId').value;
+
+            // Make a GET request to find the purchase order by ID
+            fetch('/api/purchase-orders/find/' + findOrderId, {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'YourAuthTokenHere'  // Replace with your actual authentication token
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Handle the response, update UI, etc.
+                console.log(data);
+                document.getElementById('result-container').innerText = 'Found Purchase Order: ' + JSON.stringify(data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('result-container').innerText = 'Error finding Purchase Order.';
+            });
+        }
+    </script>
+</body>
+</html>
