@@ -1,0 +1,17 @@
+package org.ejemplo.modelos;
+
+import jakarta.persistence.Entity;
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+@Setter
+@Getter
+public class Producto {
+
+    private Long id;
+    private String nombre;
+    private double precio;
+
+    // Getters y Setters
+}

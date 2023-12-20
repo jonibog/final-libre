@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link href="styles.css" rel="stylesheet" type="text/css">
+        <script src="funciones.js"></script>
+        <title>Administrador</title>
+    </head>
+    <body>
+        <section class="principal">
+            <div class="titulo interna">
+                <h1>Usuarios Registrados</h1>
+            </div>
+            <div class="interna">
+                <table id="usuariosTable">
+                    <thead>
+                        <tr>
+                            <th>Usuario</th>
+                            <th>Rol</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id ="usuarios">
+                        
+                    </tbody>
+                </table>
+            </div> 
+        </section>
+        
+        <section class="principal">
+            <div class="titulo interna">
+                <h1>Resgistrate</h1>
+            </div>
+            <div class="interna">
+                <label for="user">Usuario</label>
+                <input type="text" id="user">
+            </div>
+            <br>
+            <div class="interna">
+                <label for="role">Rol</label>
+                <input type="text" id="role">
+            </div>
+            <br>
+            <div class="interna">
+                <label for="pass">Contraseña</label>
+                <input id="pass" type="password">
+            </div>
+            <br>
+            <div class="botones interna">
+                <button onclick="registry()">Registrar</button>
+            </div>
+        </section>
+    </body>
+</html>

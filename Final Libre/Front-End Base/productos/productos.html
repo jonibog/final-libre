@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link href="styles.css" rel="stylesheet" type="text/css">
+        <script src="productos.js"></script>
+        <title>Productos</title>
+    </head>
+    <body>
+        <section class="principal">
+            <button onclick="redirectTo('../vendedor')">Volver</button>
+            <button onclick="newProduct()">Crear</button>
+            <div class="titulo interna">
+                <h1>Productos cargados</h1>
+            </div>
+            <div class="interna">
+                <table id="productosTable">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Stock</th>
+                            <th>Precio</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id ="productos">
+                        
+                    </tbody>
+                </table>
+            </div> 
+        </section>
+        <section class="loginPopup">
+            <div class= "formPopup"id="productoForm" >
+                <div class="formContainer" >
+                    <div class="titulo interna">
+                        <h1 id="verProducto" style="text-align: center;">Producto</h1>
+                        <h1 id="crearProducto"style="text-align: center;">Crear Producto</h1>
+                    </div>
+                    <div class="interna">
+                        <label for="codigo">Código</label>
+                        <input type="text" id="codigo">
+                    </div>
+                    <div class="interna">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre">
+                    </div>
+                    <div class="interna">
+                        <label for="desc">Descripción</label>
+                        <input type="text" id="desc">
+                    </div>
+                    <div class="interna">
+                        <label for="nombre">Stock</label>
+                        <input type="number" min="0" id="stock">
+                    </div>
+                    <div class="interna">
+                        <label for="nombre">Precio</label>
+                        <input type="number" min="0" step="any" id="precio">
+                    </div>
+                    <button type="submit" onclick="create()" class="btn" id="btnCrear">Crear</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                </div>
+            </div>
+            
+        </section>
+    </body>
+</html>

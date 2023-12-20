@@ -1,0 +1,42 @@
+body{
+    width: 100%;
+}
+.principal {
+    padding-left: 30%;
+    padding-top: 10%;
+    width: 30%;
+    min-width: 200px;
+}
+.botones{
+    align-items: center;
+    text-align: center;
+}
+.interna{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.titulo{
+    font-size: large;
+    font-style: oblique;
+    color: darkblue;
+}
+#user,#role,#pass,#pass1{
+    width: 100%;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+
